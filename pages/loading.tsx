@@ -1,7 +1,7 @@
-// pages/loading.tsx
-
+'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import LoadingSpinner from '@/components/LoadingSpinner'; // ← 이게 맞음!
 
 export default function Loading() {
   const router = useRouter();
@@ -9,23 +9,17 @@ export default function Loading() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push('/search');
-    }, 2000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-[#FFF5F5] flex justify-center items-center">
-      <div className="w-[393px] flex flex-col items-center justify-center text-center">
-        <p className="mb-4 text-sm text-gray-600 font-medium">
-          삼성전자에 대한 정보를 찾고 있어요...
-        </p>
-        <div className="spinner">
-          {[...Array(8)].map((_, i) => (
-            <span key={i}></span>
-          ))}
-        </div>
-      </div>
+    <div className="min-h-screen bg-[#9333EA] flex flex-col items-center justify-center">
+      <LoadingSpinner
+        message="DART 공시자료를 분석하는 중입니다."
+        currentStep="공시 텍스트 읽는 중..."
+      />
     </div>
   );
 }

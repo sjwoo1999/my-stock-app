@@ -1,4 +1,3 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
@@ -6,9 +5,9 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          light: '#FFF9F8',
-          primary: '#E30547',
-          dark: '#1A1A1A',
+          light: '#F9F5FF', // optional → 밝은 보라색 계열 (배경 쓸 때)
+          primary: '#9333EA', // rgba(147, 51, 234, 1) → #9333EA
+          dark: '#4B1C8C',   // optional → 진한 보라색 계열
         },
         surface: {
           base: '#FFFFFF',
